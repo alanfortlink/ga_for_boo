@@ -1,0 +1,3 @@
+instance3.bpp
+instance4.bpp
+instance5.bpp

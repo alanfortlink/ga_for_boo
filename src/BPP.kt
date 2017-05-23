@@ -22,6 +22,6 @@ class BPP {
         this.binCapacity = lines[1].toInt()
         this.weights = lines.subList(2, lines.size).map { value -> value.toInt() };
 
-        println(this.weights)
+//        println(this.weights)
     }
 }

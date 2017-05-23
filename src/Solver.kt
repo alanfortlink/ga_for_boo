@@ -48,9 +48,9 @@ class Solver{
 
         val subLists: MutableList< MutableList<Int> > = mutableListOf()
 
-        val begin = ind.items.subList(0, min);
-        val mid = ind.items.subList(min, max);
-        val end = ind.items.subList(max, ind.items.size);
+        val begin = ind.items.subList(0, min)
+        val mid = ind.items.subList(min, max)
+        val end = ind.items.subList(max, ind.items.size)
 
         subLists.add(begin)
         subLists.add(mid)
@@ -162,30 +162,30 @@ class Solver{
             }
         }
 
-        println(bestSolution.items)
-        println("Elapsed Time: ${System.currentTimeMillis() - initialTime}")
-        println("Iterations: ${i-1}")
-        println(bestSolution.items.map { value -> problem.weights[value] })
+//        println(bestSolution.items)
+        println("${bestSolution.getFitness(algIsNextFit)} ${(System.currentTimeMillis() - initialTime).toDouble() / 1000}")
+//        println("Iterations: ${i-1}")
+//        println(bestSolution.items.map { value -> problem.weights[value] })
         return bestSolution
     }
 }
 
 fun main(args: Array<String>) {
 
-    val i = args[0].toInt()
+    val i = args[0]
     val c = args[1].toInt()
     var m = args[2].toDouble()
     var a = args[3].toBoolean()
 
 
     var problem = BPP()
-    problem.loadFromFile("/Users/alanfortlink/IdeaProjects/POAtividade7/bpp_instances/instance${i}.bpp")
+    problem.loadFromFile(i)
 
     var solver = Solver(problem, c * problem.size, m/problem.size, a)
 
     var result = solver.solve(1000000, 10 * 60 * 1000)
 
-    println("result found: ${result.getFitness()}")
+//    println("result found: ${result.getFitness(a)}")
 
 //    for(i in 1..8){
 //        println("+++++++++++++++++++++++++++++++++++++++++ Instance ${i} ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
